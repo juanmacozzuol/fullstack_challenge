@@ -31,20 +31,20 @@ export const addPatient = async (req,res) =>{
                     const newPatient = await patientService.addPatient(patient)
                     if(newPatient.affectedRows == 1){
                         await sendMail(patient )
-                        res.status(201).json(newPatient)
+                        return  res.status(201).json(newPatient)
                         
                     }
                     else{
-                        res.status(500).json({err:"server problem"})
+                        return  res.status(500).json({err:"server problem"})
                     }
                     
                 }
                 else{
-                    res.status(406).json({error:"Incorrect data type"})
+                    return   res.status(406).json({error:"Incorrect data type"})
                 }
             }
             else{
-                res.status(400).json({error:"Missing data"})
+                return res.status(400).json({error:"Missing data"})
             }
         }    
             
