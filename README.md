@@ -6,7 +6,7 @@ Clone this repository and run this commands
 
 ```bash
 npm install
-cd client
+cd .\client\
 npm install
 ```
 
