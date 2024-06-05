@@ -1,0 +1,69 @@
+/* App.css */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+/* Centers the cards horizontally */
+  gap: 1px; /* Space between cards */
+  
+}
+
+.folding-card {
+  width: 280px;
+  height: 400px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  margin: 10px; /* Space around each card */
+}
+
+.folding-card .card-front,
+.folding-card .card-back {
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.folding-card .card-front {
+  background-color: #8f939e;
+}
+
+.folding-card .card-back {
+  background-color: #d2d3da;
+  transform: rotateY(180deg);
+}
+
+.folding-card.expanded .card-front {
+  transform: rotateY(-180deg);
+}
+
+.folding-card.expanded .card-back {
+  transform: rotateY(0);
+}
+
+.card-image {
+  max-width: 100%;
+  max-height: 150px; /* Adjust this value as needed */
+  object-fit: contain; /* This ensures the image scales proportionally */
+  margin-bottom: 10px;
+}
+
+.card-back p {
+  margin: 10px 0;
+}
+
+img{
+  height: 200px;
+  width: auto;
+}

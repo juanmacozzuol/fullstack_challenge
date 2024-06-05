@@ -1,5 +1,6 @@
 import {patientService} from '../services/services.js'
 import { sendMail } from "../utils/nodeMailer.js"
+import {getImagePath} from '../utils/common_functions.js'
 export const getAllPatients = async (req,res) =>{
     try{
        
@@ -21,9 +22,8 @@ export const addPatient = async (req,res) =>{
             return res.status(400).send({status:"error", error:"No se pudo guardar la imagen"})
         }
         else{
-            console.log(req.file)
             let patient = req.body
-            patient.document_photo = req.file.path
+            patient.document_photo = req.file.path.replaceAll('\\','\\\\')
             if(patient.name != "" && patient.email != "" && Number(patient.phone_number) != NaN){
                 console.log(typeof(patient.name),typeof(patient.email),typeof(patient.phone_number))
                 if(typeof(patient.name) == 'string' && typeof(patient.email) == 'string' && typeof(Number(patient.phone_number)) == 'number'){

@@ -1,11 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-import Form from './components/Form.js';
+
+import List from './components/List/List.js';
+
 
 function App() {
+
+
+
   return (
+
+
     <div className="App">
-      <Form/>
+
+    <List/>
+  
     </div>
   );
 }

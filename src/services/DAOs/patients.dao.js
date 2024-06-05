@@ -8,9 +8,7 @@ export default class PatientDao{
             const sql = 'SELECT * FROM `patients`';
           
             const [rows, fields] = await connection.query(sql);
-            
-            console.log(rows);
-            console.log(fields);
+
             return rows
           } catch (err) {
             console.log(err);
@@ -22,8 +20,7 @@ export default class PatientDao{
         const sql =  `INSERT INTO patients (name, email, phone_number, document_photo) VALUES ('${patient.name}','${patient.email}',${patient.phone_number},'${patient.document_photo}') `;
         const [result, fields] = await connection.query(sql);
 
-        console.log(result);
-        console.log(fields);
+
         return result
       } catch (err) {
         console.log(err);

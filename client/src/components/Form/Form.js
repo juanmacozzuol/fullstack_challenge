@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Form.css';
 
-const Form = () => {
+const Form = ({onFormSubmit, onClose}) => {
     const [formInfo, setFormInfo] = useState({
         name: "",
         email: "",
@@ -65,7 +65,7 @@ const Form = () => {
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
-        accept: 'image/jpeg',
+        accept: {'image/*':['.jpg']},
         multiple: false
     });
 
@@ -100,6 +100,8 @@ const Form = () => {
                     file: null
                 });
                 setIsSubmitted(false);
+                onClose();
+                onFormSubmit();
             } catch (error) {
                 console.error('Error submitting the form', error);
             }
